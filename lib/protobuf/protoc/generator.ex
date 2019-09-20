@@ -57,7 +57,7 @@ defmodule Protobuf.Protoc.Generator do
   defp syntax(_), do: :proto2
 
   def format_code(code) do
-    formated =
+    formatted =
       if Code.ensure_loaded?(Code) && function_exported?(Code, :format_string!, 2) do
         code
         |> Code.format_string!(locals_without_parens: [field: 2, field: 3, oneof: 2, rpc: 3])
@@ -66,10 +66,10 @@ defmodule Protobuf.Protoc.Generator do
         code
       end
 
-    if formated == "" do
-      formated
+    if formatted == "" do
+      formatted
     else
-      formated <> "\n"
+      formatted <> "\n"
     end
   end
 end

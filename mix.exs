@@ -5,7 +5,7 @@ defmodule Protobuf.Mixfile do
 
   def project do
     [
-      app: :protobuf,
+      app: :protocol_buffers,
       version: @version,
       elixir: "~> 1.4",
       build_embedded: Mix.env() == :prod,
@@ -13,7 +13,7 @@ defmodule Protobuf.Mixfile do
       deps: deps(),
       escript: escript(),
       description: description(),
-      package: package()
+      package: package(),
     ]
   end
 
@@ -22,8 +22,8 @@ defmodule Protobuf.Mixfile do
   defp deps do
     [
       {:dialyxir, "~> 0.5", only: [:dev, :test], runtime: false},
-      {:credo, "~> 0.8", only: [:dev, :test], runtime: false},
-      {:ex_doc, "~> 0.14", only: :dev, runtime: false},
+      {:credo, "~> 1.1", only: [:dev, :test], runtime: false},
+      {:ex_doc, "~> 0.21", only: :dev, runtime: false},
       {:eqc_ex, "~> 1.4", only: [:dev, :test]}
     ]
   end
@@ -33,16 +33,16 @@ defmodule Protobuf.Mixfile do
   end
 
   defp description do
-    "A pure Elixir implementation of Google Protobuf."
+    "A pure Elixir implementation of Google Protobuf. A fork of tony612's package."
   end
 
   defp package do
     [
-      maintainers: ["Bing Han"],
+      maintainers: ["Julian DeMille", "demilleTech LLC"],
       licenses: ["MIT"],
-      links: %{"GitHub" => "https://github.com/tony612/protobuf-elixir"},
+      links: %{"GitHub" => "https://github.com/demilletech/protobuf-elixir"},
       files:
-        ~w(mix.exs README.md lib/google lib/protobuf lib/protobuf.ex src config LICENSE priv/templates .formatter.exs)
+        ~w(mix.exs README.md lib/google lib/protobuf lib/protobuf.ex src config LICENSE priv/templates .formatter.exs),
     ]
   end
 end

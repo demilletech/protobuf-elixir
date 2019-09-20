@@ -26,7 +26,7 @@ defmodule Protobuf do
     end
   end
 
-  def decode(%mod{} = data) do
+  def decode(data, %mod{}) do
     Protobuf.Decoder.decode(data, mod)
   end
 
